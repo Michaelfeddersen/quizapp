@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+    background-color: lightblue;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightblue;
+    height: 100VH;
+
+}
+
+.card{
+    width: 60%;
+
+}
+.card-img-top{
+    height: 100px;
+    width: 100px;
+    display: flex;
+}
