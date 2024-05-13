@@ -1,22 +1,38 @@
 body{
     margin: 0;
-    background-color: lightblue;
+    background-color: lightblue !important;
+   height: 100vh !important;
+    font-size: 12px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    display: flex;
 }
 main{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center !important;
+    justify-content: center !important;
     background-color: lightblue;
-    height: 100VH;
+    
 
 }
 
 .card{
-    width: 60%;
+    width: 75%;
+    
 
 }
+.carda{
+    width: 100%;
+}
 .card-img-top{
-    height: 100px;
-    width: 100px;
+   
+    height: 124px;
     display: flex;
+}
+.question-footer{
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+display: flex;
+justify-content: space-between;
+padding-top: 4px;
+align-items: center;
 }
