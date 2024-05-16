@@ -10,10 +10,10 @@ let questions = [
     {
         "question": "Welcher ist der größte Strand von Mallorca?",
         "answer_1": "Cala Millor",
-        "answer_2": "Es Trenc",
+        "answer_2": "Playa de Muro",
         "answer_3": "Magaluf",
-        "answer_4": "Playa de Muro",
-        "correct_answer": "Es Trenc"
+        "answer_4": "Es Trenc",
+        "correct_answer": "4"
     },
     {
         "question": "Welches ist das bekannteste Fest auf Mallorca?",
@@ -21,7 +21,7 @@ let questions = [
         "answer_2": "Sant Joan",
         "answer_3": "Fira de la Llum",
         "answer_4": "Fiesta de San Fermin",
-        "correct_answer": "Sant Joan"
+        "correct_answer": "2"
     },
     {
         "question": "Welches ist das Wahrzeichen von Palma de Mallorca?",
@@ -29,7 +29,7 @@ let questions = [
         "answer_2": "Castell de Bellver",
         "answer_3": "Platja de Palma",
         "answer_4": "Palma Aquarium",
-        "correct_answer": "Kathedrale La Seu"
+        "correct_answer": "1"
     },
     {
         "question": "Welche ist die beliebteste Touristenattraktion in Mallorca?",
@@ -37,7 +37,7 @@ let questions = [
         "answer_2": "Puig Major",
         "answer_3": "Alcudia Altstadt",
         "answer_4": "Torrent de Pareis",
-        "correct_answer": "Cuevas del Drach"
+        "correct_answer": "1"
     },
     {
         "question": "Welcher berühmte Künstler lebte und arbeitete lange Zeit auf Mallorca?",
@@ -45,7 +45,7 @@ let questions = [
         "answer_2": "Pablo Picasso",
         "answer_3": "Joan Miró",
         "answer_4": "Antoni Gaudí",
-        "correct_answer": "Joan Miró"
+        "correct_answer": "3"
     },
     {
         "question": "Welche ist die höchste Erhebung auf Mallorca?",
@@ -53,7 +53,7 @@ let questions = [
         "answer_2": "Serra de Tramuntana",
         "answer_3": "Puig de Massanella",
         "answer_4": "Cap de Formentor",
-        "correct_answer": "Puig Major"
+        "correct_answer": "1"
     },
     {
         "question": "Welche ist die wichtigste Einnahmequelle für Mallorca?",
@@ -61,7 +61,7 @@ let questions = [
         "answer_2": "Landwirtschaft",
         "answer_3": "Fischerei",
         "answer_4": "Bauindustrie",
-        "correct_answer": "Tourismus"
+        "correct_answer": "1"
     },
     {
         "question": "Welche ist die größte Bucht von Mallorca?",
@@ -69,7 +69,7 @@ let questions = [
         "answer_2": "Bucht von Alcudia",
         "answer_3": "Bucht von Pollença",
         "answer_4": "Bucht von Cala Figuera",
-        "correct_answer": "Bucht von Alcudia"
+        "correct_answer": "2"
     },
     {
         "question": "Welche ist die typische Spezialität der mallorquinischen Küche?",
@@ -77,7 +77,7 @@ let questions = [
         "answer_2": "Gazpacho",
         "answer_3": "Frit Mallorquí",
         "answer_4": "Tortilla Española",
-        "correct_answer": "Frit Mallorquí"
+        "correct_answer": "4"
     }
 ];
 
@@ -85,7 +85,6 @@ let currentQuestion = 0;
 
 
 function init(){
-    document.getElementById("all-question").innerHTML = questions.length;
     showQuestion();
 }
 
@@ -97,7 +96,9 @@ document.getElementById('answer_1').innerHTML = question['answer_1'];
 document.getElementById('answer_2').innerHTML = question['answer_2'];
 document.getElementById('answer_3').innerHTML = question['answer_3'];
 document.getElementById('answer_4').innerHTML = question['answer_4'];
-} 
+ // Anzeige der Frage-Nummer
+ document.getElementById('questionNumber').innerHTML = `Frage <b> ${currentQuestion + 1}</b> von <b>${questions.length}</b>`;
+}
 
 function answer(selection){
     let question = questions[currentQuestion];
@@ -106,13 +107,33 @@ function answer(selection){
     console.log('selectionQuestionNumber is ', selectionQuestionNumber);
     console.log('Current question is ', question['correct_answer']); 
 
+    let idOfRightAnswer = `answer_${question['correct_answer']}`;
 
 if (selectionQuestionNumber == question['correct_answer']){
-    console.log('Richtige Antwort');
     document.getElementById(selection).parentNode.classList.add('bg-success');
 }
 else{
-    console.log("flasche Antwort");
     document.getElementById(selection).parentNode.classList.add('bg-danger');
+    document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
 }
+ document.getElementById('next-button').displed = false;
 }
+
+function nextQuestion(){
+    currentQuestion++;
+    document.getElementById('next-button').displed = true;
+    resetAnswerButtons();
+    showQuestion();
+   }
+
+   function resetAnswerButtons() {
+    document.getElementById('answer_1').parentNode.classList.remove("bg-danger");
+    document.getElementById('answer_1').parentNode.classList.remove("bg-success");
+    document.getElementById('answer_2').parentNode.classList.remove("bg-danger");
+    document.getElementById('answer_2').parentNode.classList.remove("bg-success");
+    document.getElementById('answer_3').parentNode.classList.remove("bg-danger");
+    document.getElementById('answer_3').parentNode.classList.remove("bg-success");
+    document.getElementById('answer_4').parentNode.classList.remove("bg-danger");
+    document.getElementById('answer_4').parentNode.classList.remove("bg-success");
+
+   }
