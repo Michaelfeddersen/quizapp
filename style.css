@@ -36,3 +36,7 @@ justify-content: space-between;
 padding-top: 4px;
 align-items: center;
 }
+
+.bg-success, .bg-danger {
+    color: white !important; 
+}

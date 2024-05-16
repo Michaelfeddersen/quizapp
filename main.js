@@ -5,7 +5,7 @@ let questions = [
         "answer_2": "Palma",
         "answer_3": "Bierkönig",
         "answer_4": "S'Arenal",
-        "correct_answer": "Palma"
+        "correct_answer": "2"
     },
     {
         "question": "Welcher ist der größte Strand von Mallorca?",
@@ -100,6 +100,19 @@ document.getElementById('answer_4').innerHTML = question['answer_4'];
 } 
 
 function answer(selection){
+    let question = questions[currentQuestion];
     console.log('Slelection answer is ', selection);
+    let selectionQuestionNumber = selection.slice(-1);
+    console.log('selectionQuestionNumber is ', selectionQuestionNumber);
+    console.log('Current question is ', question['correct_answer']); 
 
+
+if (selectionQuestionNumber == question['correct_answer']){
+    console.log('Richtige Antwort');
+    document.getElementById(selection).parentNode.classList.add('bg-success');
+}
+else{
+    console.log("flasche Antwort");
+    document.getElementById(selection).parentNode.classList.add('bg-danger');
+}
 }
