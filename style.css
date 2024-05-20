@@ -3,9 +3,7 @@ body{
     background-color: lightblue !important;
    height: 100vh !important;
     font-size: 12px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    display: flex;
+  
 }
 
 .carda:hover{
