@@ -12,24 +12,25 @@ main{
     align-items: center !important;
     justify-content: center !important;
     background-color: lightblue;
+    margin: 0;
     
 
 }
 
 .card{
-   width: 300px;
+   
     
 
 }
 .carda{
-    width: 100%;
+   
 }
 .carda:hover{
     background: rgb(230, 230, 230);
 }
 .card-img-top{
    
-    height: 124px;
+    
     display: flex;
 }
 .question-footer{
@@ -63,4 +64,11 @@ align-items: center;
     align-items: center;
     justify-content: center;
     width: 100%;
+}
+
+@media (max-width: 560px){
+    .card{
+        width: 100% !important;
+        height: 100% !important;
+    }
 }
