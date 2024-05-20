@@ -17,12 +17,15 @@ main{
 }
 
 .card{
-   
+   width: 300px;
     
 
 }
 .carda{
     width: 100%;
+}
+.carda:hover{
+    background: rgb(230, 230, 230);
 }
 .card-img-top{
    
@@ -39,4 +42,12 @@ align-items: center;
 
 .bg-success, .bg-danger {
     color: white !important; 
+}
+
+.width100
+{
+    width: 100% !important;
+}
+.textcenter{
+    text-align: center !important;
 }
