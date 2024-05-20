@@ -7,32 +7,11 @@ body{
     justify-content: center !important;
     display: flex;
 }
-main{
-    display: flex;
-    align-items: center !important;
-    justify-content: center !important;
-    background-color: lightblue;
-    margin: 0;
-    
 
-}
-
-.card{
-   
-    
-
-}
-.carda{
-   
-}
 .carda:hover{
     background: rgb(230, 230, 230);
 }
-.card-img-top{
-   
-    
-    display: flex;
-}
+
 .question-footer{
     border-top: 1px solid rgba(0, 0, 0, 0.4);
 display: flex;
