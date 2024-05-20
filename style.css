@@ -46,8 +46,11 @@ align-items: center;
 }
 
 @media (max-width: 560px){
-    .card{
-        width: 100% !important;
-        height: 100% !important;
+    body{
+        margin: 0;
+        background-color: lightblue !important;
+       height: 100vh !important;
+        font-size: 12px !important;
+       
     }
 }
