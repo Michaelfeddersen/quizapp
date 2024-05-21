@@ -131,12 +131,11 @@ function showQuestion() {
 
 function answer(selection) {
     let question = questions[currentQuestion];
-    console.log('Slelection answer is ', selection);
     let selectionQuestionNumber = selection.slice(-1);
-    console.log('selectionQuestionNumber is ', selectionQuestionNumber);
-    console.log('Current question is ', question['correct_answer']);
-
     let idOfRightAnswer = `answer_${question['correct_answer']}`;
+
+    // Disable all answer buttons
+    disableAllAnswers();
 
     if (selectionQuestionNumber == question['correct_answer']) {
         document.getElementById(selection).parentNode.classList.add('bg-success');
@@ -157,17 +156,17 @@ function nextQuestion() {
     resetAnswerButtons();
     showQuestion();
 }
-
+function disableAllAnswers() {
+    document.getElementById('answer_1').parentNode.classList.add('disabled');
+    document.getElementById('answer_2').parentNode.classList.add('disabled');
+    document.getElementById('answer_3').parentNode.classList.add('disabled');
+    document.getElementById('answer_4').parentNode.classList.add('disabled');
+}
 function resetAnswerButtons() {
-    document.getElementById('answer_1').parentNode.classList.remove("bg-danger");
-    document.getElementById('answer_1').parentNode.classList.remove("bg-success");
-    document.getElementById('answer_2').parentNode.classList.remove("bg-danger");
-    document.getElementById('answer_2').parentNode.classList.remove("bg-success");
-    document.getElementById('answer_3').parentNode.classList.remove("bg-danger");
-    document.getElementById('answer_3').parentNode.classList.remove("bg-success");
-    document.getElementById('answer_4').parentNode.classList.remove("bg-danger");
-    document.getElementById('answer_4').parentNode.classList.remove("bg-success");
-
+    document.getElementById('answer_1').parentNode.classList.remove("bg-danger", "bg-success", "disabled");
+    document.getElementById('answer_2').parentNode.classList.remove("bg-danger", "bg-success", "disabled");
+    document.getElementById('answer_3').parentNode.classList.remove("bg-danger", "bg-success", "disabled");
+    document.getElementById('answer_4').parentNode.classList.remove("bg-danger", "bg-success", "disabled");
 }
 
 function  restartGame() {

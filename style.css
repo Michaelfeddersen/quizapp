@@ -1,9 +1,17 @@
 body{
     margin: 0;
     background-color: lightblue !important;
-   height: 100% !important;
+   height: 100vh !important;
     font-size: 12px !important;
   
+  
+}
+main{
+    display: flex;
+    justify-content: center;
+}
+.card{
+    width: 80%;
 }
 
 .carda:hover{
@@ -42,6 +50,10 @@ align-items: center;
     justify-content: center;
     width: 100%;
 }
+.disabled {
+    pointer-events: none;
+    opacity: 1;
+}
 
 @media (max-width: 560px){
     body{
@@ -50,5 +62,8 @@ align-items: center;
        height: 100vh !important;
         font-size: 12px !important;
        
+    }
+    .card{
+        width: 100%;
     }
 }
