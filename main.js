@@ -78,6 +78,46 @@ let questions = [
         "answer_3": "Frit Mallorquí",
         "answer_4": "Tortilla Española",
         "correct_answer": "4"
+    },
+    {
+        "question": "Welche Stadt auf Mallorca ist bekannt für ihre wöchentliche Perlen- und Lederwarenmärkte?",
+        "answer_1": "Sóller",
+        "answer_2": "Manacor",
+        "answer_3": "Andratx",
+        "answer_4": "Deià",
+        "correct_answer": "2"
+    },
+    {
+        "question": "Welches berühmte Bauwerk auf Mallorca wurde von Antoni Gaudí restauriert?",
+        "answer_1": "Kathedrale La Seu",
+        "answer_2": "Castell de Bellver",
+        "answer_3": "Palau de l'Almudaina",
+        "answer_4": "Sa Llotja",
+        "correct_answer": "1"
+    },
+    {
+        "question": "Welcher bekannte Roman spielt teilweise auf Mallorca?",
+        "answer_1": "The Sun Also Rises von Ernest Hemingway",
+        "answer_2": "The Night Manager von John le Carré",
+        "answer_3": "The Talented Mr. Ripley von Patricia Highsmith",
+        "answer_4": "A Room with a View von E.M. Forster",
+        "correct_answer": "3"
+    },
+    {
+        "question": "Welche kleine Inselgruppe gehört zu Mallorca?",
+        "answer_1": "Cabrera-Archipel",
+        "answer_2": "Balearen",
+        "answer_3": "Pityusen",
+        "answer_4": "Columbretes",
+        "correct_answer": "1"
+    },
+    {
+        "question": "Welches ist das beliebteste traditionelle Getränk auf Mallorca?",
+        "answer_1": "Sangria",
+        "answer_2": "Hierbas",
+        "answer_3": "Rioja",
+        "answer_4": "Cava",
+        "correct_answer": "2"
     }
 ];
 
