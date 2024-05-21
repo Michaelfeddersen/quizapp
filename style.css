@@ -9,6 +9,21 @@ body{
 main{
     display: flex;
     justify-content: center;
+    height: 100vh;
+}
+.headertitle{
+    
+
+}
+h1{
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.79); 
+    background-image:linear-gradient(0deg, rgba(255,72,72,1) 0%, rgba(255,231,0,1) 73%, rgba(255,231,0,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    user-select: none;  
+
+    
+    font-weight: 700 !important;
 }
 .card{
     width: 80%;
@@ -54,6 +69,15 @@ align-items: center;
     pointer-events: none;
     opacity: 1;
 }
+.bgimg{
+    background-image: url(img/mallorca.png);
+    background-size: cover;
+    background-position: bottom;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 @media (max-width: 560px){
     body{
@@ -65,5 +89,8 @@ align-items: center;
     }
     .card{
         width: 100%;
+    }
+    .bgimg{
+        max-height: 200px;
     }
 }
