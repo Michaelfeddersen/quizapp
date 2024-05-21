@@ -87,6 +87,27 @@ align-items: center;
     justify-content: center;
     align-items: center;
 }
+.trophy{
+    /* background-image: url(img/trophy.png); */
+   
+   
+  
+
+  
+   
+}
+.trophyimg{
+    background-image: url(img/trophy.png);
+    height: 70vh;
+   max-height: 640px;
+   max-height: 640px;
+
+   background-repeat: no-repeat;
+   background-position: center;
+   width: 100%;
+   
+    
+}
 
 @media (max-width: 560px){
     body{
