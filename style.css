@@ -4,12 +4,20 @@ body{
    height: 100vh !important;
     font-size: 12px !important;
     overflow-y: hidden !important;
-  
+    
+    width: 100%;
 }
-main{
+.over{
     display: flex;
-    justify-content: center;
+    align-items: center;
     height: 100vh;
+}
+.main{
+    display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+ 
 }
 .headertitle{
     
@@ -88,9 +96,23 @@ align-items: center;
         font-size: 12px !important;
        
     }
+    .over{
+        display: flex;
+        align-items: flex-start;
+        height: 100vh!important;
+    }
+    .main{
+        display: flex;
+        align-items: flex-start;
+        height: 100vh!important;
+    }
     .card{
         width: 100%;
+       
     }
+   .hcard{
+    height: 100vh !important;
+   }
     .bgimg{
         max-height: 200px;
     }
