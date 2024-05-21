@@ -126,49 +126,50 @@ let rightQuestion = 0;
 let AUDIO_succses = new Audio('sounds/succses.mp3');
 let AUDIO_wrong = new Audio('sounds/wrong.mp3');
 
-
 function init() {
     document.getElementById('next-button').disabled = true;
     showQuestion();
 }
 
-
 function showQuestion() {
-
-    if (currentQuestion >= questions.length) {
-
-        document.getElementById('cardEnd').style = '';
-        document.getElementById('cardQuestion').style = 'display: none;';
-      
-        document.getElementById('goal').innerHTML = `Du hast <b> ${rightQuestion}</b> von <b>${questions.length}</b> richtig.`;
-        document.getElementById('head').style = 'display: none;';
-        document.getElementById('progressbar').style.width = `100%`;
-        document.getElementById('progressbar').innerHTML = 100 + "%";
-        document.getElementById('progressbarround').classList.remove('borderradius0');
-    
+    if (gameIsOver()) {
+        showEndScreen();
     } else {
-
-        let percent = Math.round(currentQuestion / questions.length *100);
-
-        document.getElementById('progressbar').style.width = `${percent}%`;
-        document.getElementById('progressbar').innerHTML = percent + "%";
-      
-      
-
-
-        let question = questions[currentQuestion];
-        document.getElementById('questionText').innerHTML = question['question'];
-        document.getElementById('answer_1').innerHTML = question['answer_1'];
-        document.getElementById('answer_2').innerHTML = question['answer_2'];
-        document.getElementById('answer_3').innerHTML = question['answer_3'];
-        document.getElementById('answer_4').innerHTML = question['answer_4'];
-        // Anzeige der Frage-Nummer
-        document.getElementById('questionNumber').innerHTML = `Frage <b> ${currentQuestion + 1}</b> von <b>${questions.length}</b>`;
-        
+        updateToNextQuestion();
+        updateProgressbar();
     }
 }
 
+function gameIsOver() {
+    return currentQuestion >= questions.length;
+}
 
+function showEndScreen() {
+    document.getElementById('cardEnd').style = '';
+    document.getElementById('cardQuestion').style = 'display: none;';
+    document.getElementById('goal').innerHTML = `Du hast <b> ${rightQuestion}</b> von <b>${questions.length}</b> richtig.`;
+    document.getElementById('head').style = 'display: none;';
+    document.getElementById('progressbar').style.width = `100%`;
+    document.getElementById('progressbar').innerHTML = 100 + "%";
+    document.getElementById('progressbarround').classList.remove('borderradius0');
+}
+
+function updateToNextQuestion() {
+    
+    let question = questions[currentQuestion];
+    document.getElementById('questionText').innerHTML = question['question'];
+    document.getElementById('answer_1').innerHTML = question['answer_1'];
+    document.getElementById('answer_2').innerHTML = question['answer_2'];
+    document.getElementById('answer_3').innerHTML = question['answer_3'];
+    document.getElementById('answer_4').innerHTML = question['answer_4'];
+    // Anzeige der Frage-Nummer
+    document.getElementById('questionNumber').innerHTML = `Frage <b> ${currentQuestion + 1}</b> von <b>${questions.length}</b>`;
+}
+function updateProgressbar() {
+    let percent = Math.round(currentQuestion / questions.length * 100);
+    document.getElementById('progressbar').style.width = `${percent}%`;
+    document.getElementById('progressbar').innerHTML = percent + "%";
+}
 function answer(selection) {
     let question = questions[currentQuestion];
     let selectionQuestionNumber = selection.slice(-1);
@@ -177,7 +178,7 @@ function answer(selection) {
     // Disable all answer buttons
     disableAllAnswers();
 
-    if (selectionQuestionNumber == question['correct_answer']) {
+    if (rightAnswerSelected(selectionQuestionNumber, question)) {
         document.getElementById(selection).parentNode.classList.add('bg-success');
         AUDIO_succses.play();
         rightQuestion++;
@@ -188,6 +189,10 @@ function answer(selection) {
         AUDIO_wrong.play();
     }
     document.getElementById('next-button').disabled = false;
+}
+
+function rightAnswerSelected(selectionQuestionNumber, question) {
+    return selectionQuestionNumber == question['correct_answer'];
 }
 
 function nextQuestion() {
@@ -209,14 +214,14 @@ function resetAnswerButtons() {
     document.getElementById('answer_4').parentNode.classList.remove("bg-danger", "bg-success", "disabled");
 }
 
-function  restartGame() {
+function restartGame() {
     document.getElementById('head').style = 'display: show;';
     document.getElementById('cardQuestion').style = 'display: show;';
     document.getElementById('cardEnd').style = 'display: none;';
     document.getElementById('progressbar').style.width = `0%`;
-        document.getElementById('progressbar').innerHTML = 0 + "%";
-        document.getElementById('progressbarround').classList.add('borderradius0');
-   currentQuestion = 0;
+    document.getElementById('progressbar').innerHTML = 0 + "%";
+    document.getElementById('progressbarround').classList.add('borderradius0');
+    currentQuestion = 0;
     rightQuestion = 0;
-init()
+    init()
 }
