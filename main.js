@@ -125,6 +125,7 @@ let currentQuestion = 0;
 let rightQuestion = 0;
 let AUDIO_succses = new Audio('sounds/succses.mp3');
 let AUDIO_wrong = new Audio('sounds/wrong.mp3');
+let soundEnabled = true;
 
 function init() {
     document.getElementById('next-button').disabled = true;
@@ -162,7 +163,6 @@ function updateToNextQuestion() {
     document.getElementById('answer_2').innerHTML = question['answer_2'];
     document.getElementById('answer_3').innerHTML = question['answer_3'];
     document.getElementById('answer_4').innerHTML = question['answer_4'];
-    // Anzeige der Frage-Nummer
     document.getElementById('questionNumber').innerHTML = `Frage <b> ${currentQuestion + 1}</b> von <b>${questions.length}</b>`;
 }
 function updateProgressbar() {
@@ -180,13 +180,14 @@ function answer(selection) {
 
     if (rightAnswerSelected(selectionQuestionNumber, question)) {
         document.getElementById(selection).parentNode.classList.add('bg-success');
-        AUDIO_succses.play();
+        if (soundEnabled) AUDIO_succses.play();
+
         rightQuestion++;
     }
     else {
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
-        AUDIO_wrong.play();
+        if (soundEnabled) AUDIO_wrong.play();
     }
     document.getElementById('next-button').disabled = false;
 }
@@ -225,3 +226,14 @@ function restartGame() {
     rightQuestion = 0;
     init()
 }
+function toggleSound() {
+    soundEnabled = !soundEnabled;
+    document.getElementById('soundButton').innerText = soundEnabled ? '🔊 Sound Aus' : '🔇 Sound An';
+  }
+document.addEventListener('DOMContentLoaded', function () {
+    const checkbox = document.getElementById('soundCheckbox');
+    checkbox.addEventListener('change', function () {
+      toggleSound();
+    });
+  });
+  

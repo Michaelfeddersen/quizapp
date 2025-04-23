@@ -1,111 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quizapp</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="main.js"></script>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body onload="init()">
-    <div class="over">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quizapp</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="main.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</head>
+
+<body onload="init()">
+  <div class="over">
     <div class="main">
-      <!-- <nav class="navbar bg-body-tertiary fixed-top">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">QuizAPP</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Einstellungen</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li>
-                      <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  </ul>
-                </li>
-              </ul>
-              <form class="d-flex mt-3" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </nav> -->
       <div class="card hcard">
-       <div class="bgimg rounded-top" id="head" > <span class="headertitle"><h1>Das Mallorca Quiz</h1></span></div> 
-       <!-- <img
-          src="img/mallorca.png"
-          class="card-img-top"
-          alt="..."
-          id="head"
-        /> -->
-        <div
-          id="progressbarround"
-          class="progress rounded-bottom borderradius0"
-        >
-          <div
-            class="progress-bar"
-            role="progressbar"
-            id="progressbar"
-            style="width: 0%"
-            aria-valuenow="25"
-            aria-valuemin="0"
-            aria-valuemax="100"
-          >
+        <div class="bgimg position-relative" id="head">
+          <div class="sound-btn">
+            <input type="checkbox" id="soundCheckbox" />
+            <label for="soundCheckbox" class="toggleSwitch">
+              <div class="speaker">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 75 75">
+                  <path
+                    d="M39.389,13.769 L22.235,28.606 L6,28.606 L6,47.699 L21.989,47.699 L39.389,62.75 L39.389,13.769z"
+                    style="stroke:#fff;stroke-width:5;stroke-linejoin:round;fill:#fff;"></path>
+                  <path d="M48,27.6a19.5,19.5 0 0 1 0,21.4M55.1,20.5a30,30 0 0 1 0,35.6M61.6,14a38.8,38.8 0 0 1 0,48.6"
+                    style="fill:none;stroke:#fff;stroke-width:5;stroke-linecap:round"></path>
+                </svg>
+              </div>
+
+              <div class="mute-speaker">
+                <svg version="1.0" viewBox="0 0 75 75" stroke="#fff" stroke-width="5">
+                  <path d="m39,14-17,15H6V48H22l17,15z" fill="#fff" stroke-linejoin="round"></path>
+                  <path d="m49,26 20,24m0-24-20,24" fill="#fff" stroke-linecap="round"></path>
+                </svg>
+              </div>
+            </label>
+          </div>
+          <h1 class="header-title">Das Mallorca Quiz</h1>
+        </div>
+        <div id="progressbarround" class="progress rounded-bottom borderradius0">
+          <div class="progress-bar" role="progressbar" id="progressbar" style="width: 0%" aria-valuenow="25"
+            aria-valuemin="0" aria-valuemax="100">
             0%
           </div>
         </div>
         <div class="card-body" id="cardEnd" style="display: none;">
           <h4 class="textcenter">Geschafft! :)</h4>
           <div class="textcenter" id="goal">
-            
+
           </div>
           <div class=" rounded mt-2 trophy">
             <div class="trophyimg rounded "></div>
-            <!-- <img src="img/trophy.png" alt="" class=" rounded mt-2" /> -->
+
           </div>
           <div class="endfooter mt-2">
-          <button
-          onclick="restartGame()"
-          class="btn btn-primary"
-          id="restart-button"
-        >
-          Erneut Spielen
-        </button>
-      </div>
+            <button onclick="restartGame()" class="btn btn-primary" id="restart-button">
+              Erneut Spielen
+            </button>
+          </div>
         </div>
-        
+
         <div class="card-body" id="cardQuestion">
           <h5 class="card-title">Frage</h5>
           <p class="card-text" id="questionText">
@@ -127,17 +85,14 @@
             <div>
               <div id="questionNumber"></div>
             </div>
-            <button
-              onclick="nextQuestion()"
-              class="btn btn-primary"
-              id="next-button"
-            >
+            <button onclick="nextQuestion()" class="btn btn-primary" id="next-button">
               Nächste Frage
             </button>
           </div>
         </div>
       </div>
-    </div> 
+    </div>
   </div>
-  </body>
+</body>
+
 </html>
